@@ -8,6 +8,8 @@ import dagger.Provides;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import com.maks.durov.cinemaandroid.dao.MovieDao;
+import com.maks.durov.cinemaandroid.dao.TicketDao;
+import com.maks.durov.cinemaandroid.dao.UserDao;
 import com.maks.durov.cinemaandroid.db.CinemaDatabase;
 import com.maks.durov.cinemaandroid.repository.CinemaRepository;
 import com.maks.durov.cinemaandroid.viewmodel.CustomViewModelFactory;
@@ -34,6 +36,18 @@ public class RoomModule {
     @Singleton
     public MovieDao provideMovieDao(CinemaDatabase cinemaDatabase) {
         return cinemaDatabase.movieDao();
+    }
+
+    @Provides
+    @Singleton
+    public UserDao provideUserDao(CinemaDatabase cinemaDatabase) {
+        return cinemaDatabase.userDao();
+    }
+
+    @Provides
+    @Singleton
+    public TicketDao provideTicketDao(CinemaDatabase cinemaDatabase) {
+        return cinemaDatabase.ticketDao();
     }
 
     @Provides
