@@ -1,7 +1,8 @@
-package com.maks.durov.cinemaandroid;
+package com.maks.durov.cinemaandroid.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.maks.durov.cinemaandroid.R;
 
 public class MainActivity extends AppCompatActivity {
 
