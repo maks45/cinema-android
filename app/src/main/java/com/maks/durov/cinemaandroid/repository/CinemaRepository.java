@@ -1,6 +1,5 @@
 package com.maks.durov.cinemaandroid.repository;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 import javax.inject.Inject;
@@ -27,6 +26,17 @@ public class CinemaRepository {
 
     public LiveData<List<Movie>> getMovies() {
         return movieDao.getAllMovies();
+    }
+
+    @AllArgsConstructor
+    private static class UpdateAsyncTask extends AsyncTask<Movie, Void, Void>{
+        private final MovieDao movieDao;
+
+        @Override
+        protected Void doInBackground(Movie... movies) {
+            movieDao.update(movies[0]);
+            return null;
+        }
     }
 
     @AllArgsConstructor
