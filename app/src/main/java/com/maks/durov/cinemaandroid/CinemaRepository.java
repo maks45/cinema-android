@@ -2,8 +2,8 @@ package com.maks.durov.cinemaandroid;
 
 import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
+import javax.inject.Inject;
 import lombok.AllArgsConstructor;
-import com.maks.durov.cinemaandroid.Application;
 import com.maks.durov.cinemaandroid.dao.MovieDao;
 import com.maks.durov.cinemaandroid.db.CinemaDataBase;
 import com.maks.durov.cinemaandroid.model.Movie;
@@ -13,8 +13,9 @@ public class CinemaRepository {
     private MovieDao movieDao;
     private LiveData<List<Movie>> movies;
 
-    public CinemaRepository(Application application) {
-        CinemaDataBase cinemaDataBase = CinemaDataBase.getInstance(application);
+    @Inject
+    public CinemaRepository(CinemaApplication cinemaApplication) {
+        CinemaDataBase cinemaDataBase = CinemaDataBase.getInstance(cinemaApplication);
         movieDao = cinemaDataBase.movieDao();
         movies = movieDao.getAllMovies();
     }
