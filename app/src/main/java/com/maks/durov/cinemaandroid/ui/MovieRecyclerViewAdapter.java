@@ -12,6 +12,7 @@ import com.maks.durov.cinemaandroid.model.Movie;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecyclerViewAdapter.MovieViewHolder> {
     private List<Movie> movies = new ArrayList<>();
 
@@ -40,7 +41,7 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
     }
 
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
-        private TextView textViewTitle;
+        private final TextView textViewTitle;
 
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);

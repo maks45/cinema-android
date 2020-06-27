@@ -5,17 +5,24 @@ import android.os.Bundle;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import javax.inject.Inject;
+import com.maks.durov.cinemaandroid.CinemaApplication;
 import com.maks.durov.cinemaandroid.R;
 import com.maks.durov.cinemaandroid.model.Movie;
+import com.maks.durov.cinemaandroid.repository.CinemaRepository;
 import com.maks.durov.cinemaandroid.viewmodel.CinemaViewModel;
 
 public class MainActivity extends AppCompatActivity {
-    private CinemaViewModel cinemaViewModel;
+    @Inject
+    public CinemaRepository cinemaRepository;
+    @Inject
+    public CinemaViewModel cinemaViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ((CinemaApplication) getApplication()).getAppComponent().inject(this);
 
         RecyclerView recyclerView = findViewById(R.id.main_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -23,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         MovieRecyclerViewAdapter adapter = new MovieRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
-
-        cinemaViewModel = ViewModelProviders.of(this).get(CinemaViewModel.class);
 
         Movie movie = new Movie();
         movie.setTitle("test title");
