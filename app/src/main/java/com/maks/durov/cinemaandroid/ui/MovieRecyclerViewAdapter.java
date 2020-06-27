@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import lombok.Setter;
 import com.maks.durov.cinemaandroid.R;
 import com.maks.durov.cinemaandroid.model.Movie;
 import java.util.ArrayList;

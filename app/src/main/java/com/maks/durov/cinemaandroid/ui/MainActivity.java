@@ -2,7 +2,6 @@ package com.maks.durov.cinemaandroid.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import javax.inject.Inject;

@@ -44,7 +44,8 @@ public class RoomModule {
 
     @Provides
     @Singleton
-    public ViewModelProvider.Factory provideViewModelProviderFactory(CinemaRepository cinemaRepository) {
+    public ViewModelProvider.Factory provideViewModelProviderFactory(
+            CinemaRepository cinemaRepository) {
         return new CustomViewModelFactory(cinemaRepository);
     }
 }
