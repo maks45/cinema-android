@@ -11,7 +11,7 @@ import com.maks.durov.cinemaandroid.dao.MovieDao;
 import com.maks.durov.cinemaandroid.dao.TicketDao;
 import com.maks.durov.cinemaandroid.dao.UserDao;
 import com.maks.durov.cinemaandroid.db.CinemaDatabase;
-import com.maks.durov.cinemaandroid.repository.CinemaRepository;
+import com.maks.durov.cinemaandroid.repository.MovieRepository;
 import com.maks.durov.cinemaandroid.viewmodel.CustomViewModelFactory;
 
 @Module
@@ -28,8 +28,8 @@ public class RoomModule {
 
     @Provides
     @Singleton
-    public CinemaRepository provideCinemaRepository(MovieDao movieDao) {
-        return new CinemaRepository(movieDao);
+    public MovieRepository provideCinemaRepository(MovieDao movieDao) {
+        return new MovieRepository(movieDao);
     }
 
     @Provides
@@ -59,7 +59,7 @@ public class RoomModule {
     @Provides
     @Singleton
     public ViewModelProvider.Factory provideViewModelProviderFactory(
-            CinemaRepository cinemaRepository) {
-        return new CustomViewModelFactory(cinemaRepository);
+            MovieRepository movieRepository) {
+        return new CustomViewModelFactory(movieRepository);
     }
 }

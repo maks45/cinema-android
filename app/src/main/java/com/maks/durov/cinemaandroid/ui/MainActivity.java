@@ -8,12 +8,9 @@ import javax.inject.Inject;
 import com.maks.durov.cinemaandroid.CinemaApplication;
 import com.maks.durov.cinemaandroid.R;
 import com.maks.durov.cinemaandroid.model.Movie;
-import com.maks.durov.cinemaandroid.repository.CinemaRepository;
 import com.maks.durov.cinemaandroid.viewmodel.CinemaViewModel;
 
 public class MainActivity extends AppCompatActivity {
-    @Inject
-    public CinemaRepository cinemaRepository;
     @Inject
     public CinemaViewModel cinemaViewModel;
 

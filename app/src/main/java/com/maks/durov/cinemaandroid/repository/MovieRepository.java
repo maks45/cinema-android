@@ -8,11 +8,11 @@ import com.maks.durov.cinemaandroid.dao.MovieDao;
 import com.maks.durov.cinemaandroid.model.Movie;
 import java.util.List;
 
-public class CinemaRepository {
+public class MovieRepository {
     private final MovieDao movieDao;
 
     @Inject
-    public CinemaRepository(MovieDao movieDao) {
+    public MovieRepository(MovieDao movieDao) {
         this.movieDao = movieDao;
     }
 
@@ -29,7 +29,7 @@ public class CinemaRepository {
     }
 
     @AllArgsConstructor
-    private static class UpdateAsyncTask extends AsyncTask<Movie, Void, Void>{
+    private static class UpdateAsyncTask extends AsyncTask<Movie, Void, Void> {
         private final MovieDao movieDao;
 
         @Override
@@ -40,12 +40,13 @@ public class CinemaRepository {
     }
 
     @AllArgsConstructor
-    private static class InsertAsyncTask extends AsyncTask<Movie, Void, Long>{
+    private static class InsertAsyncTask extends AsyncTask<Movie, Void, Void> {
         private final MovieDao movieDao;
 
         @Override
-        protected Long doInBackground(Movie... movies) {
-            return movieDao.insert(movies[0]);
+        protected Void doInBackground(Movie... movies) {
+            movieDao.insert(movies[0]);
+            return null;
         }
     }
 }

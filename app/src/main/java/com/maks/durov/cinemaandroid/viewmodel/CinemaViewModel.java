@@ -1,30 +1,25 @@
 package com.maks.durov.cinemaandroid.viewmodel;
 
-import android.app.Application;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 import javax.inject.Inject;
-import com.maks.durov.cinemaandroid.repository.CinemaRepository;
+import com.maks.durov.cinemaandroid.repository.MovieRepository;
 import com.maks.durov.cinemaandroid.model.Movie;
 import java.util.List;
 
 public class CinemaViewModel extends ViewModel {
-    public CinemaRepository cinemaRepository;
+    public MovieRepository movieRepository;
 
     @Inject
-    public CinemaViewModel(CinemaRepository cinemaRepository) {
-        this.cinemaRepository = cinemaRepository;
+    public CinemaViewModel(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
     }
 
-
     public void insert(Movie movie){
-        cinemaRepository.insert(movie);
+        movieRepository.insert(movie);
     }
 
     public LiveData<List<Movie>> getMovies(){
-        return cinemaRepository.getMovies();
+        return movieRepository.getMovies();
     }
 }
