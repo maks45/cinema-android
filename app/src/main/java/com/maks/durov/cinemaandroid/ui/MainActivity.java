@@ -9,6 +9,7 @@ import com.maks.durov.cinemaandroid.CinemaApplication;
 import com.maks.durov.cinemaandroid.R;
 import com.maks.durov.cinemaandroid.model.Movie;
 import com.maks.durov.cinemaandroid.viewmodel.CinemaViewModel;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     @Inject
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        MovieRecyclerViewAdapter adapter = new MovieRecyclerViewAdapter();
+        MovieRecyclerViewAdapter adapter = new MovieRecyclerViewAdapter(new ArrayList<>());
         recyclerView.setAdapter(adapter);
 
         Movie movie = new Movie();
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         cinemaViewModel.insert(movie);
 
-        cinemaViewModel.getMovies().observe(this, adapter::setMovies);
+        cinemaViewModel.getMovies().observe(this, (movies) -> {
+            adapter.setMovies(movies);
+            adapter.notifyDataSetChanged();
+        });
     }
 }

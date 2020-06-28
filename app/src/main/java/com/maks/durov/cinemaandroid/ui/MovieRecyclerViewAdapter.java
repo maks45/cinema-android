@@ -6,19 +6,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import lombok.AllArgsConstructor;
+import lombok.Setter;
 import com.maks.durov.cinemaandroid.R;
 import com.maks.durov.cinemaandroid.model.Movie;
-import java.util.ArrayList;
 import java.util.List;
 
-
+@AllArgsConstructor
+@Setter
 public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecyclerViewAdapter.MovieViewHolder> {
-    private List<Movie> movies = new ArrayList<>();
-
-    public void setMovies(List<Movie> movies) {
-        this.movies = movies;
-        notifyDataSetChanged();
-    }
+    private List<Movie> movies;
 
     @NonNull
     @Override
